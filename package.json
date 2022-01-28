@@ -10,11 +10,14 @@
 		"deploy": "npm run build && rm -Rf docs/js docs/css && cp -r dist/* docs && git add docs"
 	},
 	"dependencies": {
-		"vue": "^3.2.25",
-		"vue3-loading-overlay": "^0.0.0",
-		"vuex": "^4.0.2",
+		"covjson-reader": "^0.16.3",
 		"date-fns": "^2.28.0",
-		"leaflet-coverage": "file:.../leaflet-coverage"
+		"leaflet": "^1.7.1",
+		"leaflet-coverage": "file:../leaflet-coverage",
+		"vue": "^3.2.25",
+		"vue-leaflet": "^0.1.0",
+		"vue3-loading-overlay": "^0.0.0",
+		"vuex": "^4.0.2"
 	},
 	"devDependencies": {
 		"@typescript-eslint/parser": "^5.9.0",

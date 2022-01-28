@@ -2,12 +2,10 @@ import { createStore } from 'vuex'
 import { addDays, differenceInDays } from 'date-fns'
 
 const API_PATH =
-	import.meta.env.PROD ? '/data/' : '/data/'
+	import.meta.env.PROD ? '/vue3-skeleton-data/' : '/data/'
 
 const api = {
-	CLIMATOLOGY: API_PATH + 'climatology.json',
-	RIVER_LEVEL: API_PATH + 'water_levels.json',
-	FORECAST_DATA: API_PATH + 'forecasts.json',
+	DATA: API_PATH + 'data.json'
 }
 
 const state = {

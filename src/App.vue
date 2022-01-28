@@ -4,12 +4,17 @@ import { useStore } from 'vuex'
 import 'vue3-loading-overlay/dist/vue3-loading-overlay.css'
 import Loading from 'vue3-loading-overlay'
 import AppHeader from './components/AppHeader.vue'
+import Map from './components/Map.vue'
+
+const store = useStore()
+const isLoading = computed(() => store.getters.isLoading)
 
 </script>
 
 <template>
 	<loading :active="isLoading" :isFullPage="true" id="loading"></loading>
 	<AppHeader id="header" />
+	<Map id="map" />
 </template>
 
 <style lang="scss">
