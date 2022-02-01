@@ -2,9 +2,9 @@
 import { ref, computed, reactive, watch } from 'vue'
 import { useStore } from 'vuex'
 import 'leaflet/dist/leaflet.css'
-import { LMap, LControl, LTileLayer } from '@vue-leaflet/vue-leaflet'
+import { LMap, LControl, LTileLayer, LMarker } from '@vue-leaflet/vue-leaflet'
 import L from 'leaflet'
-import LCovJson from './LCovJson.vue'
+import { LCovJson, palettes } from 'vue-leaflet-covjson'
 import * as CovJSON from 'covjson-reader'
 
 const zoom = ref(6)
@@ -30,16 +30,25 @@ CovJSON.read('/data/ben_wales2.json').then(
 	(result: any) => (covJson.value = result)
 )
 
-setTimeout(() => {
-	CovJSON.read('/data/ben_ms.json').then(
-		(result: any) => (covJson.value = result)
-	)
-}, 10000)
+// setTimeout(() => {
+// 	CovJSON.read('/data/ben_ms.json').then(
+// 		(result: any) => (covJson.value = result)
+// 	)
+// }, 10000)
 
 function onLoad(): void {
 	mapObject = map.value.leafletObject
 
 	console.log('Map loaded, mapObject:', mapObject)
+}
+
+const palette = palettes.turboPalette
+
+const time = ref(new Date(2021, 10, 18))
+
+function clickFunc(): void {
+	console.log('Clicked!')
+	time.value = new Date(time.value.getTime() + 1000 * 60 * 60 * 24)
 }
 </script>
 
@@ -60,11 +69,17 @@ function onLoad(): void {
 				:zIndex="1"
 			></LTileLayer>
 
+			<LMarker :latLng="[52,-1]" attribution="My marker"></LMarker>
+
 			<LCovJson
 				:cov-json="covJson"
 				parameter="PcpAcc_24hr_sum"
-				:paletteExtent="[5, 6]"
-				:time="new Date(2021, 11, 1)"
+				:paletteExtent="[0, 17]"
+				:palette="palette"
+				:time="time"
+				attribution="Me. I made this."
+				pane="markerPane"
+				@click="clickFunc"
 			></LCovJson>
 		</LMap>
 	</div>
