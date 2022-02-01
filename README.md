@@ -1,4 +1,4 @@
-# VIEWpoint PEACFLOW
+# Test project for vue-leaflet-covjson
 
 # Vue 3 + Typescript + Vite
 
