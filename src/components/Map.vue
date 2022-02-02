@@ -2,7 +2,7 @@
 import { ref, computed, reactive, watch } from 'vue'
 import { useStore } from 'vuex'
 import 'leaflet/dist/leaflet.css'
-import { LMap, LControl, LTileLayer, LMarker } from '@vue-leaflet/vue-leaflet'
+import { LMap, LControl, LTileLayer } from '@vue-leaflet/vue-leaflet'
 import L from 'leaflet'
 import { LCovJson, palettes } from 'vue-leaflet-covjson'
 import * as CovJSON from 'covjson-reader'
@@ -26,9 +26,27 @@ const map: any = ref(null)
 let mapObject: any = reactive({})
 
 const covJson: any = ref(null)
-CovJSON.read('/data/ben_wales2.json').then(
+CovJSON.read('/data/polygonseries.json').then(
 	(result: any) => (covJson.value = result)
 )
+
+function selectPointSeries() {
+	CovJSON.read('/data/pointseries.json').then(
+		(result: any) => (covJson.value = result)
+	)
+}
+
+function selectPolySeries() {
+	CovJSON.read('/data/polygonseries.json').then(
+		(result: any) => (covJson.value = result)
+	)
+}
+
+function selectMultiPolySeries() {
+	CovJSON.read('/data/multipolygonseries.json').then(
+		(result: any) => (covJson.value = result)
+	)
+}
 
 // setTimeout(() => {
 // 	CovJSON.read('/data/ben_ms.json').then(
@@ -53,7 +71,7 @@ function clickFunc(): void {
 </script>
 
 <template>
-	<div id="map-container">
+	<div>
 		<LMap
 			ref="map"
 			:zoom="zoom"
@@ -69,7 +87,13 @@ function clickFunc(): void {
 				:zIndex="1"
 			></LTileLayer>
 
-			<LMarker :latLng="[52,-1]" attribution="My marker"></LMarker>
+			<LControl position="bottomleft">
+				<div class="buttons">
+					<button @click="selectPointSeries">PointSeries</button>
+					<button @click="selectPolySeries">PolygonSeries</button>
+					<button @click="selectMultiPolySeries">MultiPolygonSeries</button>
+				</div>
+			</LControl>
 
 			<LCovJson
 				:cov-json="covJson"
@@ -86,8 +110,25 @@ function clickFunc(): void {
 </template>
 
 <style lang="scss" scoped>
-#map-container {
+@import '@/assets/styles/scssVars.scss';
+
+#map {
 	height: 100%;
 	width: 100%;
+
+	.buttons {
+		display: flex;
+		flex-direction: column;
+
+		button {
+			background-color: $bg;
+			border-radius: 4px;
+			margin-bottom: 8px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
 }
 </style>

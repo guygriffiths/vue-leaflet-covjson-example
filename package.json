@@ -1,6 +1,6 @@
 {
-	"name": "vue3-skeleton",
-	"version": "0.1.0",
+	"name": "vue3-leaflet-covjson-example",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "vite",
 		"build": "vue-tsc --noEmit && vite build",
@@ -12,10 +12,11 @@
 	"dependencies": {
 		"covjson-reader": "^0.16.3",
 		"date-fns": "^2.28.0",
+		"leaflet": "^1.6.0",
 		"leaflet-coverage": "file:../leaflet-coverage",
-		"vue-leaflet-covjson": "file:../vue-leaflet-covjson",
 		"vue": "^3.2.25",
 		"vue-leaflet": "^0.1.0",
+		"vue-leaflet-covjson": "file:../vue-leaflet-covjson",
 		"vue3-loading-overlay": "^0.0.0",
 		"vuex": "^4.0.2"
 	},
