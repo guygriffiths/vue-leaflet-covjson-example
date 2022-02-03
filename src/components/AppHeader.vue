@@ -11,7 +11,7 @@
 
 <template>
 	<header>
-		<div id="header-title">Vue3 Skeleton</div>
+		<div id="header-title">Vue Leaflet CoverageJSON</div>
 	</header>
 </template>
 
