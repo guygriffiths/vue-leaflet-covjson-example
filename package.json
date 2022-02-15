@@ -14,8 +14,7 @@
 		"date-fns": "^2.28.0",
 		"leaflet": "^1.7.1",
 		"vue": "^3.2.25",
-		"vue-leaflet": "^0.1.0",
-		"vue-leaflet-covjson": "^0.2.1",
+		"vue-leaflet-covjson": "file:../vue-leaflet-covjson",
 		"vue3-loading-overlay": "^0.0.0",
 		"vuex": "^4.0.2"
 	},
