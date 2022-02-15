@@ -3,7 +3,8 @@ import { ref, computed, reactive, watch } from 'vue'
 import { useStore } from 'vuex'
 import 'leaflet/dist/leaflet.css'
 import { LMap, LControl, LTileLayer } from '@vue-leaflet/vue-leaflet'
-import { LCovJson, palettes } from 'vue-leaflet-covjson'
+import 'vue-leaflet-covjson/dist/style.css'
+import { LCovJson, LPaletteLegend, palettes } from 'vue-leaflet-covjson'
 import * as CovJSON from 'covjson-reader'
 
 const zoom = ref(6)
@@ -70,7 +71,10 @@ function clickFunc(e: any): void {
 				</div>
 			</LControl>
 
-			<LCovJson
+			<LPaletteLegend position="bottomright" :paletteExtent="[-10, 100]" units="whatevers">
+			</LPaletteLegend>
+
+			<!-- <LCovJson
 				v-if="layerOn"
 				:covjson="covJson"
 				parameter="PcpAcc_24hr_sum"
@@ -80,7 +84,7 @@ function clickFunc(e: any): void {
 				attribution="Me. I made this."
 				pane="markerPane"
 				@click="clickFunc"
-			></LCovJson>
+			></LCovJson> -->
 		</LMap>
 	</div>
 </template>
