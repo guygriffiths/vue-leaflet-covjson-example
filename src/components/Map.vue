@@ -34,7 +34,7 @@ function onLoad(): void {
 }
 
 const palette = palettes.heatPalette
-const paletteExtent = ref([0,15])
+const paletteExtent = ref([0, 15])
 const time = ref(new Date(2021, 10, 18))
 
 const layerOn = ref(true)
@@ -42,7 +42,6 @@ const layerOn = ref(true)
 function clickFunc(e: any): void {
 	console.log('Clicked!', e)
 	time.value = new Date(time.value.getTime() + 1000 * 60 * 60 * 24)
-    // paletteExtent.value = [0, paletteExtent.value[1] - 1]
 }
 </script>
 
@@ -71,10 +70,19 @@ function clickFunc(e: any): void {
 				</div>
 			</LControl>
 
-			<LPaletteLegend position="bottomright" :paletteExtent="[-10, 100]" units="whatevers">
+			<LPaletteLegend
+				position="bottomright"
+				:paletteExtent="paletteExtent"
+				:palette="palette"
+				:nTicks="3"
+				units="mm"
+				:labelFormat="(v: number) => v.toFixed(2)"
+				colorbarWidth="2rem"
+				height="250px"
+			>
 			</LPaletteLegend>
 
-			<!-- <LCovJson
+			<LCovJson
 				v-if="layerOn"
 				:covjson="covJson"
 				parameter="PcpAcc_24hr_sum"
@@ -84,7 +92,7 @@ function clickFunc(e: any): void {
 				attribution="Me. I made this."
 				pane="markerPane"
 				@click="clickFunc"
-			></LCovJson> -->
+			></LCovJson>
 		</LMap>
 	</div>
 </template>
