@@ -1,5 +1,4 @@
 import { createStore } from 'vuex'
-import { addDays, differenceInDays } from 'date-fns'
 
 const API_PATH =
 	import.meta.env.PROD ? '/vue3-skeleton-data/' : '/data/'

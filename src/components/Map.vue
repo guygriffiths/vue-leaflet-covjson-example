@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, reactive, watch } from 'vue'
-import { useStore } from 'vuex'
+import { ref, reactive } from 'vue'
 import 'leaflet/dist/leaflet.css'
 import { LMap, LControl, LTileLayer } from '@vue-leaflet/vue-leaflet'
 import 'vue-leaflet-covjson/dist/style.css'

@@ -12,9 +12,8 @@
 	"dependencies": {
 		"covjson-reader": "^0.16.3",
 		"date-fns": "^2.28.0",
-		"leaflet": "^1.7.1",
 		"vue": "^3.2.25",
-		"vue-leaflet-covjson": "file:../vue-leaflet-covjson",
+		"vue-leaflet-covjson": "^0.3.0",
 		"vue3-loading-overlay": "^0.0.0",
 		"vuex": "^4.0.2"
 	},
