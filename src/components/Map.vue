@@ -32,7 +32,7 @@ function onLoad(): void {
 	})
 }
 
-const palette = palettes.heatPalette
+const palette = palettes.heatPalette.reverse()
 const paletteExtent = ref([0, 15])
 const time = ref(new Date(2021, 10, 18))
 

@@ -13,7 +13,7 @@
 		"covjson-reader": "^0.16.3",
 		"date-fns": "^2.28.0",
 		"vue": "^3.2.25",
-		"vue-leaflet-covjson": "^0.3.0",
+		"vue-leaflet-covjson": "^0.3.1",
 		"vue3-loading-overlay": "^0.0.0",
 		"vuex": "^4.0.2"
 	},
